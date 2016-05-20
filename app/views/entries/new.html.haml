@@ -1,2 +1,13 @@
 %h1 New Entry
+
+= form_for [@blog, @entry] do |f|
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit 'Save'
+
 = link_to 'back', blog_path(@blog)
