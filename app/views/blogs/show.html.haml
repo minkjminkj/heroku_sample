@@ -7,3 +7,20 @@
 = link_to 'Edit', edit_blog_path(@blog)
 \|
 = link_to 'Back', blogs_path
+
+%p
+  %b Listing Entries
+%table
+  %tr
+    %th title
+    %th body
+    %th
+    %th
+  - @entries.each do |e|
+    %tr
+      %td= e.title
+      %td= e.body
+      %td= link_to 'Edit'
+      %td= link_to 'Destory', blog_entry_path(e.blog_id, e), method: :delete, data: {confirm: "Are you sure?"}
+
+  = link_to 'New Entry', new_blog_entry_path(@blog)
